@@ -1,4 +1,4 @@
-import CounterRounded from "./components/counter/Counter";
+import CounterRounded from "./components/counter/CounterRounded";
 import {
   Container
 } from "./styles";

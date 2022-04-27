@@ -8,6 +8,7 @@ export const Container = styled.div`
   justify-content: center;
   padding: 10px;
   box-sizing: border-box;
+  background-color: ${({ theme }) => theme.colors.background};
 
   @media screen and (max-width: 400px) {
     .counter__button-area {
