@@ -4,22 +4,29 @@ import {
   Counter
 } from './styles';
 
+import { useAppSelector, useAppDispatch } from '../../../../app/hooks';
+import { decrement, increment, selectCount } from './counterRoundedSlice';
+
 const CounterRounded = () => {
+
+  const count = useAppSelector(selectCount);
+  const dispatch = useAppDispatch();
+
   return (
     <Counter.Area>
       <Counter.ValueArea>
-        <span>0</span>
+        <span>{count}</span>
       </Counter.ValueArea>
       <Counter.ButtonsArea
         className="counter__button-area"
       >
         <ButtonRounded
           label={LABEL_COUNTER.INCREMENT}
-          onClick={() => console.log('nada')}
+          onClick={() => dispatch(increment())}
         />
         <ButtonRounded
           label={LABEL_COUNTER.DECREMENT}
-          onClick={() => console.log('nada')}
+          onClick={() => dispatch(decrement())}
         />
       </Counter.ButtonsArea>
     </Counter.Area>

@@ -3,21 +3,32 @@ import styled from "styled-components"
 export const Counter = {
   Area: styled.div`
     max-width: 400px;
+    height: 500px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    border: 2px solid black;
+    justify-content: space-between;
+    border: 4px solid ${({ theme }) => theme.colors.white};
     border-radius: 10px;
     padding: 10px;
     box-sizing: border-box;
+    background-color: ${({ theme }) => theme.colors.background2};
+    transition: border 300ms;
+
+    :hover {
+      border-color: ${({ theme }) => theme.counter.buttonCounterSetValue.borderColor};
+    }
   `,
   ValueArea: styled.div`
-    padding: 20px;
-    box-sizing: border-box;
-
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
     span {
-      font-size: ${({ theme }) => theme.fontSizes.big}
+      font-size: ${({ theme }) => theme.fontSizes.extreme};
+      color: ${({ theme }) => theme.counter.labelValueColor};
+      cursor: default;
     }
   `,
   ButtonsArea: styled.div`
@@ -28,13 +39,15 @@ export const Counter = {
     flex-wrap: wrap;
 
     button {
-      background-color: ${({ theme }) => theme.buttonCounterSetValue.backgroundColor};
-      color: ${({ theme }) => theme.buttonCounterSetValue.labelColor};
-      border: 3px solid transparent;
+      background-color: ${({ theme }) => theme.counter.buttonCounterSetValue.backgroundColor};
+      color: ${({ theme }) => theme.counter.buttonCounterSetValue.labelColor};
+      border: 3px solid ${({ theme }) => theme.colors.white};
       margin: 5px;
+      transition: border 300ms, color 300ms;
 
       :hover {
-        border-color: ${({ theme }) => theme.buttonCounterSetValue.borderColor}
+        border-color: ${({ theme }) => theme.counter.buttonCounterSetValue.borderColor};
+        color: ${({ theme }) => theme.counter.buttonCounterSetValue.labelColorHover};
       }
     }
   `,
